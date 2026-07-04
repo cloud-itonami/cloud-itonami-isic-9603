@@ -2,7 +2,7 @@
 
 ## Classification
 
-- Repository: `cloud-itonami-9603`
+- Repository: `cloud-itonami-isic-9603`
 - ISIC Rev.5: `9603`
 - Activity: funeral and related activities -- funeral home, crematory, cemetery and related death-care services
 - Social impact: community access, data sovereignty, transparent audit

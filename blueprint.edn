@@ -1,4 +1,4 @@
-{:itonami.blueprint/id "cloud-itonami-9603"
+{:itonami.blueprint/id "cloud-itonami-isic-9603"
  :itonami.blueprint/name "Funeral and related activities"
  :itonami.blueprint/isic-rev5 "9603"
  :itonami.blueprint/domain :services/funeral

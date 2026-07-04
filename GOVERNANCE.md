@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-9603` is an OSS open-business blueprint for funeral and related activities -- funeral home, crematory, cemetery and related death-care services.
+`cloud-itonami-isic-9603` is an OSS open-business blueprint for funeral and related activities -- funeral home, crematory, cemetery and related death-care services.
 Governance covers both the capability layer and the operator model.
 
 ## Maintainers

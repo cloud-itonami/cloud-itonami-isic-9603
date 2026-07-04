@@ -1,4 +1,4 @@
-# cloud-itonami-9603
+# cloud-itonami-isic-9603
 
 Open Business Blueprint for **ISIC Rev.5 9603**: Funeral and related activities.
 
