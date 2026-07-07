@@ -31,7 +31,14 @@
 ## Trust Controls
 
 - no disposition (burial or cremation) is performed without human sign-off (a licensed funeral director) and family/legal authorization
-- a fabricated authorization forces a hold, not an override
-- every disposition path is auditable
+- a fabricated jurisdiction citation, incomplete disposition evidence,
+  a statutory minimum waiting period that hasn't yet elapsed, or an
+  unverified disposition authorization -- each forces a hold, not an
+  override
+- a case cannot be disposed twice: a double-disposition attempt is
+  held off this actor's own case facts alone, with no upstream
+  comparison needed
+- every intake, assessment, screening and disposition path is
+  auditable
 - decedent/family data stays outside Git
 - emergency manual override paths remain outside LLM control
