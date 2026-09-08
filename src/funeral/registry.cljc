@@ -28,7 +28,7 @@
   RECORD a funeral home would keep, not the act of performing the
   disposition itself (that is `funeral.operation`'s `:disposition/
   perform`, always human-gated -- see README `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is the
@@ -80,7 +80,7 @@
     (throw (ex-info "disposition: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "disposition: sequence must be >= 0" {})))
-  (let [disposition-number (str (str/upper-case jurisdiction) "-DSP-" (zero-pad sequence 6))
+  (let [disposition-number (str (str/upper jurisdiction) "-DSP-" (zero-pad sequence 6))
         record {"record_id" disposition-number
                 "kind" "final-disposition-draft"
                 "case_id" case-id
