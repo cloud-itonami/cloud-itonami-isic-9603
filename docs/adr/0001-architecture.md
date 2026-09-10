@@ -150,7 +150,7 @@ nothing to fix.
   genuinely different domain (ISIC division 96) for the first time,
   and to the fleet's starkest irreversibility case yet.
 - (+) The actuation invariant (governor + phase, two layers) is
-  regression-tested by `test/funeral/phase_test.clj`'s `disposition-
+  regression-tested by `test/funeral/phase_test.kotoba`'s `disposition-
   perform-never-auto-at-any-phase`.
 - (+) `MemStore` ‖ `DatomicStore` parity is proven by `test/funeral/
   store_contract_test.clj`, the same `:db-api`-driven swap pattern
