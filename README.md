@@ -157,14 +157,14 @@ domain capability lib to reference at all.
 
 | File | Role |
 |---|---|
-| `src/funeral/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + final-disposition history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded case, and the double-disposition guard checks a dedicated `:disposed?` boolean rather than a `:status` value |
-| `src/funeral/registry.cljc` | Final-disposition draft records, plus `waiting-period-elapsed?`/`minimum-waiting-period-hours` -- reuses `veterinary.registry`'s newly-established temporal-sufficiency shape for a SECOND domain instance (a real statutory minimum wait, cited from Japan's Cemetery and Burial Act), applied unconditionally (no type-tag gate needed, unlike the veterinary check) |
-| `src/funeral/facts.cljc` | Per-jurisdiction death-care/disposition catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/funeral/funeralopsllm.cljc` | **FuneralOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/authorization-screening/final-disposition proposals |
-| `src/funeral/governor.cljc` | **Funeral Services Governor** -- 4 HARD checks (spec-basis · evidence-incomplete · waiting-period-not-elapsed, pure ground-truth temporal-sufficiency recompute · authorization-unverified, unconditional evaluation) + already-disposed guard + 1 soft (confidence/actuation gate) |
-| `src/funeral/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (disposition always human; case intake is the ONLY auto-eligible op, no direct capital risk) |
-| `src/funeral/operation.cljc` | **OperationActor** -- langgraph-clj StateGraph |
-| `src/funeral/sim.cljc` | demo driver |
+| `src/funeral/store.kotoba` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + final-disposition history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded case, and the double-disposition guard checks a dedicated `:disposed?` boolean rather than a `:status` value |
+| `src/funeral/registry.kotoba` | Final-disposition draft records, plus `waiting-period-elapsed?`/`minimum-waiting-period-hours` -- reuses `veterinary.registry`'s newly-established temporal-sufficiency shape for a SECOND domain instance (a real statutory minimum wait, cited from Japan's Cemetery and Burial Act), applied unconditionally (no type-tag gate needed, unlike the veterinary check) |
+| `src/funeral/facts.kotoba` | Per-jurisdiction death-care/disposition catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/funeral/funeralopsllm.kotoba` | **FuneralOps-LLM Advisor** -- `mock-advisor` ‖ `llm-advisor`; intake/assessment/authorization-screening/final-disposition proposals |
+| `src/funeral/governor.kotoba` | **Funeral Services Governor** -- 4 HARD checks (spec-basis · evidence-incomplete · waiting-period-not-elapsed, pure ground-truth temporal-sufficiency recompute · authorization-unverified, unconditional evaluation) + already-disposed guard + 1 soft (confidence/actuation gate) |
+| `src/funeral/phase.kotoba` | **Phase 0→3** -- read-only → assisted intake → assisted assess → supervised (disposition always human; case intake is the ONLY auto-eligible op, no direct capital risk) |
+| `src/funeral/operation.kotoba` | **OperationActor** -- langgraph-clj StateGraph |
+| `src/funeral/sim.kotoba` | demo driver |
 | `test/funeral/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
