@@ -134,7 +134,7 @@ stack only, per the blueprint's own explicit statement.
 Like `7120`/`8620`/`8530`/`9200`/`7500` (and unlike `6492`'s status-
 lifecycle bug or `6920`'s NullPointerException), this build's test
 suite, lint, and demo-ledger verification all passed clean on the
-first run. The demo (`clojure -M:dev:run`) was still independently
+first run. The demo (`kbb -M:dev:run`) was still independently
 verified against the printed audit ledger -- basis tags `:no-spec-
 basis` · `:waiting-period-not-elapsed` · `:authorization-unverified` ·
 `:already-disposed` all appear exactly where the sim script intends,
