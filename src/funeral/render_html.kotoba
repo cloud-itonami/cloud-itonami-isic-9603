@@ -6,14 +6,14 @@
   and no generator at all. This namespace drives the REAL actor stack
   (`funeral.operation` -> `funeral.governor` -> `funeral.store`)
   through a scenario adapted from this repo's own `funeral.sim` demo
-  driver (`clojure -M:run`, confirmed by actually running it before
+  driver (`kbb -M:run`, confirmed by actually running it before
   this file was written -- unlike `cloud-itonami-isic-851`'s
   `schoolops.sim`, this repo's own sim driver uses case ids that DO
   match `funeral.store/demo-data`'s seeded cases exactly, and every
   disposition it produces (auto-commit / escalate+approve / HARD hold,
   and the exact `:rule` on each hold) matches `funeral.governor`'s own
   documented checks precisely -- verified fact-for-fact against a real
-  `clojure -M:run` transcript, so it was safe to build on directly
+  `kbb -M:run` transcript, so it was safe to build on directly
   rather than author from scratch), extended by one additional
   independently-probed HARD-hold path (`:evidence-incomplete` on
   case-2, confirmed by a real run before being added here) so all five
@@ -23,7 +23,7 @@
   the same seed (verified by diffing two consecutive runs before
   shipping).
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
             [kotoba.lang.text :as str]
@@ -223,7 +223,7 @@
      "<main>\n"
      "  <section class=\"card\">\n"
      "    <h2>Cases</h2>\n"
-     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>funeral.store</code> via <code>funeral.render-html</code> (<code>clojure -M:dev:render-html</code>), regenerated nightly.</p>\n"
+     "    <p class=\"muted\">Demo snapshot — build-time-generated from <code>funeral.store</code> via <code>funeral.render-html</code> (<code>kbb -M:dev:render-html</code>), regenerated nightly.</p>\n"
      "    <table>\n"
      "      <thead><tr><th>Case</th><th>Decedent</th><th>Jurisdiction</th><th>Hours since death</th><th>Disposition authorization</th><th>Final disposition</th><th>Last op status</th></tr></thead>\n"
      "      <tbody>\n"

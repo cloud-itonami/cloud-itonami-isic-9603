@@ -1,5 +1,5 @@
 (ns funeral.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean case through
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean case through
   intake -> jurisdiction assessment -> disposition-authorization
   screening -> final-disposition proposal (always escalates) -> human
   approval -> commit, then shows four HARD holds (a jurisdiction with
