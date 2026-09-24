@@ -1,0 +1,35 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": a facility-logistics robot assists physical
+;; preparation-room and transport tasks at a funeral home (ISIC 9603), gated
+;; by the Funeral Services Governor. Its physical work here is moving the
+;; deceased on the church trolley from the preparation room up the ramp to the
+;; chapel, and keeping the deceased in refrigerated holding until the service.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-9603"
+ :cases
+ [{:id :church-trolley-to-chapel
+   :kind :transport
+   :procedure "robot moves the casket on the church trolley from the preparation room up the 1:12 ramp into the chapel, gently"
+   :params {:mass-kg 45.0 :distance-m 40.0 :v-max-mps 0.6 :a-max-mps2 0.25
+            :brake-decel-mps2 0.5 :drive-force-n 280.0 :crr 0.02 :slope-deg 4.8
+            :cog-height-m 0.45 :support-half-length-m 0.60 :payload-cog-height-m 0.95
+            :max-time-s 1800.0}
+   :sweep {:param :payload-kg :values [80.0 110.0 140.0 170.0 200.0 230.0]}
+   :quantity :cycle-time-s
+   :limit {:max 90.0 :basis "estimate: one preparation-room-to-chapel move at a dignified pace within the pre-service window; payload is casket plus the deceased; 4.8 deg is the 1:12 accessible-ramp slope"}
+   :boundary {:lo 20.0 :hi 400.0}}
+  {:id :refrigerated-holding
+   :kind :thermal
+   :procedure "the deceased is placed in the refrigerated holding room; room air cools the body from both sides (torso modelled as a 0.1 m half-slab with a symmetric core) until the core is below 10 C"
+   :params {:thickness-m 0.10 :conductivity-w-mk 0.5 :density-kg-m3 1050.0 :specific-heat-j-kgk 3500.0
+            :t0-c 30.0 :h-front-w-m2k 10.0 :h-back-w-m2k 0.0
+            :threshold-c 10.0 :threshold-direction :falling :duration-s 259200.0 :nodes 11}
+   :sweep {:param :t-hot-c :values [0.0 2.0 4.0 6.0 8.0]}
+   :quantity :time-to-threshold-s
+   :limit {:max 86400.0 :basis "estimate: core below 10 C within 24 h of admission; tissue properties, starting core temperature and room-air heat transfer coefficient are estimates"}
+   :boundary {:lo -5.0 :hi 9.5}}]}
